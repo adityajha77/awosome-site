@@ -1,119 +1,169 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 100px;
-  background: #f5f5f5;
-}
-
-h1 {
-  color: #2c3e50;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background: #3498db;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #2980b9;
-}
-/* Navbar styling */
-body {
+/* Reset some default styles */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
+/* Body with a gradient background */
+body {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Navbar styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  background-color: #0d6efd;
-  color: white;
-  height: 60px;
+  padding: 1rem 2rem;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .navbar .logo a {
-  color: white;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 1.5rem;
+  color: #fff;
   font-weight: bold;
 }
 
-.navbar .nav-links {
+.nav-links {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
 }
 
-.navbar .nav-links li {
-  margin-left: 20px;
+.nav-links li {
+  margin-left: 2rem;
 }
 
-.navbar .nav-links a {
-  color: white;
+.nav-links li a {
   text-decoration: none;
-  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-.navbar .nav-links a:hover {
-  text-decoration: underline;
+.nav-links li a:hover {
+  color: #ffdd59;
+  transform: scale(1.1);
 }
 
-/* Mobile menu */
+/* Burger menu (for mobile) */
 .burger {
   display: none;
-  flex-direction: column;
   cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .burger div {
   width: 25px;
   height: 3px;
-  background-color: white;
-  margin: 4px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+/* Main content */
+section#home {
+  text-align: center;
+  padding: 10rem 2rem;
+  background: rgba(255,255,255,0.05);
+  margin: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+section#home h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 5s ease infinite;
+}
+
+@keyframes gradientText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#btn {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+#btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff4b2b;
+}
+
+#msg {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0,0,0,0.5);
+  margin-top: 2rem;
+}
+
+.footer-links {
+  margin-top: 1rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 1rem;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffdd59;
+  transform: scale(1.1);
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
   .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #0d6efd;
     position: absolute;
-    top: 60px;
-    left: 0;
+    right: 0;
+    height: 100vh;
+    top: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
   }
+
   .nav-links li {
-    margin: 15px 0;
-    text-align: center;
+    margin: 2rem 0;
   }
+
+  .nav-links.active {
+    transform: translateX(0%);
+  }
+
   .burger {
     display: flex;
   }
-}
-/* Footer styling */
-.footer {
-  background-color: #0d6efd;
-  color: white;
-  text-align: center;
-  padding: 20px 10px;
-  margin-top: 50px;
-}
-
-.footer a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
 }
